@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" spacing="15" alignment="CENTER" style="-fx-padding: 20; -fx-background-color: #f4f4f4;" fx:controller="com.valdo.gestionpedidosrestaurante.controladores.DetallePedidoController">
+    <!-- Título -->
+    <Label text="Detalles del Pedido" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
+
+    <!-- Información del Pedido -->
+    <GridPane hgap="10" vgap="10">
+        <Label text="Cliente:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+        <Label fx:id="lblCliente" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Fecha:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+        <Label fx:id="lblFecha" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Hora:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+        <Label fx:id="lblHora" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Estado:" GridPane.rowIndex="3" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+        <Label fx:id="lblEstado" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <!-- Tabla de Detalles -->
+    <TableView fx:id="tblDetalles" prefHeight="300" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="colProducto" text="Producto" prefWidth="200"/>
+            <TableColumn fx:id="colCantidad" text="Cantidad" prefWidth="100"/>
+            <TableColumn fx:id="colPrecioUnitario" text="Precio Unitario" prefWidth="150"/>
+            <TableColumn fx:id="colSubtotal" text="Subtotal" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <!-- Botón para cerrar la ventana -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Cerrar" onAction="#cerrarVentana" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 14px;"/>
+    </HBox>
+</VBox>

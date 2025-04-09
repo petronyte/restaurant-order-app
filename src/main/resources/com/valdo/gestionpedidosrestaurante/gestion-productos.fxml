@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" style="-fx-padding: 20; -fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.valdo.gestionpedidosrestaurante.controladores.GestionProductosController">
+
+    <!-- Formulario de Productos -->
+    <GridPane hgap="10" style="-fx-padding: 10; -fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-width: 1;" vgap="10">
+        <Label text="Nombre del Producto:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="Categoría:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="txtCategoria" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Precio:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="txtPrecio" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Label text="Disponible:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <CheckBox fx:id="chkDisponible" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+
+    <!-- Botones -->
+    <HBox spacing="10">
+        <Button fx:id="btnAgregar" onAction="#agregarProducto" style="-fx-background-color: #34656d; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px;" text="Agregar" />
+        <Button fx:id="btnModificar" onAction="#modificarProducto" style="-fx-background-color: #34656d; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px;" text="Modificar" />
+        <Button fx:id="btnBuscar" onAction="#buscarProducto" style="-fx-background-color: #34656d; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px;" text="Buscar" />
+        <Button fx:id="btnEliminar" onAction="#eliminarProducto" style="-fx-background-color: #34656d; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px;" text="Eliminar" />
+        <Button fx:id="btnVolver" onAction="#volverAlMenu" style="-fx-background-color: #34656d; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px;" text="Volver al menú" />
+        <Button onAction="#generarReporteProductosBajoPrecio" prefHeight="39.0" prefWidth="190.0" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px;" text="Productos por menos de 5€">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+
+    </HBox>
+
+    <!-- Tabla de Productos -->
+    <TableView fx:id="tblProductos">
+        <columns>
+            <TableColumn fx:id="colID" text="ID" />
+            <TableColumn fx:id="colNombre" text="Nombre" />
+            <TableColumn fx:id="colCategoria" text="Categoría" />
+            <TableColumn fx:id="colPrecio" text="Precio" />
+            <TableColumn fx:id="colDisponible" text="Disponible" />
+        </columns>
+    </TableView>
+</VBox>

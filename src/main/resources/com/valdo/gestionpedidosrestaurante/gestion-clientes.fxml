@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" style="-fx-padding: 20; -fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.valdo.gestionpedidosrestaurante.controladores.GestionClientesController">
+
+    <!-- Formulario para ingresar datos -->
+    <GridPane hgap="10" style="-fx-padding: 10; -fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-width: 1;" vgap="10">
+        <Label style="-fx-font-size: 14px; -fx-text-fill: #333333;" text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="txtNombre" style="-fx-font-size: 14px; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label style="-fx-font-size: 14px; -fx-text-fill: #333333;" text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="txtTelefono" style="-fx-font-size: 14px; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label style="-fx-font-size: 14px; -fx-text-fill: #333333;" text="Dirección:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="txtDireccion" style="-fx-font-size: 14px; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+
+    <!-- Botones de acción -->
+    <HBox spacing="10" style="-fx-padding: 10; -fx-alignment: center;">
+        <Button fx:id="btnAgregar" onAction="#agregarCliente" style="-fx-background-color: #34656d; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px;" text="Agregar" />
+        <Button fx:id="btnModificar" onAction="#modificarCliente" style="-fx-background-color: #34656d; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px;" text="Modificar" />
+        <Button fx:id="btnBuscar" onAction="#buscarCliente" style="-fx-background-color: #34656d; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px;" text="Buscar" />
+        <Button fx:id="btnEliminar" onAction="#eliminarCliente" style="-fx-background-color: #34656d; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px;" text="Eliminar" />
+        <Button fx:id="btnVolverClientes" onAction="#volverAlMenu" style="-fx-background-color: #34656d; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px;" text="Volver al menú" />
+        <Button onAction="#generarReporteClientes" prefHeight="40.0" prefWidth="192.0" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-size: 14px;" text="Generar Informe de Clientes">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+    </HBox>
+
+    <!-- Tabla para mostrar clientes -->
+    <TableView fx:id="tblClientes" style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-width: 1;">
+        <columns>
+            <TableColumn fx:id="colID" style="-fx-alignment: center; -fx-font-size: 14px;" text="ID" />
+            <TableColumn fx:id="colNombre" style="-fx-alignment: center; -fx-font-size: 14px;" text="Nombre" />
+            <TableColumn fx:id="colTelefono" style="-fx-alignment: center; -fx-font-size: 14px;" text="Teléfono" />
+            <TableColumn fx:id="colDireccion" style="-fx-alignment: center; -fx-font-size: 14px;" text="Dirección" />
+        </columns>
+    </TableView>
+</VBox>

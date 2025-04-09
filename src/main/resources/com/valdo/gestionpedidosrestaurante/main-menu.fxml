@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.valdo.gestionpedidosrestaurante.controladores.MainMenuController">
+
+    <!-- Fondo con la imagen -->
+    <ImageView fx:id="imagenRestaurante" fitHeight="600" fitWidth="800" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 5, 5);">
+        <image>
+            <Image url="@restaurante.jpg" />
+        </image>
+    </ImageView>
+
+    <!-- Contenedor central para botones y título -->
+    <VBox alignment="CENTER" spacing="20" style="-fx-background-color: rgba(0, 0, 0, 0.5); -fx-padding: 20; -fx-alignment: center;">
+        <Label style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;" text="Sistema de Gestión de Pedidos" />
+        <Button fx:id="btnClientes" onAction="#abrirClientes" style="-fx-background-color: #34656d; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10px; -fx-border-radius: 10; -fx-background-radius: 10;" text="Gestión de Clientes">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+        <Button fx:id="btnProductos" onAction="#abrirProductos" style="-fx-background-color: #34656d; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10px; -fx-border-radius: 10; -fx-background-radius: 10;" text="Gestión de Productos">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+        <Button fx:id="btnPedidos" onAction="#abrirPedidos" style="-fx-background-color: #34656d; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10px; -fx-border-radius: 10; -fx-background-radius: 10;" text="Gestión de Pedidos">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+    </VBox>
+</StackPane>

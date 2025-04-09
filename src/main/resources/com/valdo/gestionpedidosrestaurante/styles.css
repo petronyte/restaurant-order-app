@@ -1,0 +1,22 @@
+/* Estilo del fondo */
+.root {
+    -fx-font-family: 'Segoe UI';
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Estilo del título */
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+/* Botones estilizados */
+.button {
+    -fx-background-color: #34656d;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 10px;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}

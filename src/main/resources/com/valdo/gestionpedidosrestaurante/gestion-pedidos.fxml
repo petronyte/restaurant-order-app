@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.valdo.gestionpedidosrestaurante.controladores.GestionPedidosController">
+
+    <!-- Encabezado Principal -->
+    <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Gestión de Pedidos" />
+
+    <!-- Sección: Información del Pedido -->
+    <TitledPane expanded="true" text="Información del Pedido">
+        <content>
+            <GridPane hgap="10" vgap="10">
+                <Label style="-fx-font-weight: bold;" text="Cliente:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <ComboBox fx:id="cmbClientes" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                <Label style="-fx-font-weight: bold;" text="Fecha:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <DatePicker fx:id="dpFecha" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label style="-fx-font-weight: bold;" text="Hora:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="txtHora" promptText="HH:mm" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <Label style="-fx-font-weight: bold;" text="Total:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <TextField fx:id="txtTotal" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <Label style="-fx-font-weight: bold;" text="Estado:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <ComboBox fx:id="cmbEstado" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <columnConstraints>
+               <ColumnConstraints />
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
+            </GridPane>
+        </content>
+    </TitledPane>
+
+    <!-- Sección: Agregar Productos al Pedido -->
+    <TitledPane expanded="true" text="Agregar Productos al Pedido">
+        <content>
+            <VBox spacing="10">
+                <!-- Controles para seleccionar producto y cantidad -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label style="-fx-font-weight: bold;" text="Producto:" />
+                    <ComboBox fx:id="cmbProductos" prefWidth="200" />
+                    <Label style="-fx-font-weight: bold;" text="Cantidad:" />
+                    <TextField fx:id="txtCantidad" prefWidth="80" promptText="Cantidad" />
+                    <Button onAction="#agregarProductoAlPedido" style="-fx-background-color: #34656d; -fx-text-fill: white;" text="Agregar Producto">
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor></Button>
+                </HBox>
+                <!-- Tabla para mostrar los productos agregados -->
+                <TableView fx:id="tblDetallePedido">
+                    <columns>
+                        <TableColumn fx:id="colProducto" prefWidth="150" text="Producto" />
+                        <TableColumn fx:id="colCantidad" prefWidth="80" text="Cantidad" />
+                        <TableColumn fx:id="colPrecioUnitario" prefWidth="120" text="Precio Unitario" />
+                        <TableColumn fx:id="colSubtotal" prefWidth="120" text="Subtotal" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </content>
+    </TitledPane>
+
+    <!-- Botones de Acción para Pedidos -->
+    <HBox alignment="CENTER" spacing="15">
+        <Button onAction="#crearPedido" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-size: 14px;" text="Crear Pedido">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+        <Button onAction="#modificarPedido" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px;" text="Modificar Pedido">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+        <Button onAction="#buscarPedido" style="-fx-background-color: #5dade2; -fx-text-fill: white; -fx-font-size: 14px;" text="Buscar Pedido">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+        <Button onAction="#eliminarPedido" style="-fx-background-color: #2471a3; -fx-text-fill: white; -fx-font-size: 14px;" text="Eliminar Pedido">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+        <Button onAction="#verDetallePedido" style="-fx-background-color: #2e86c1; -fx-text-fill: white; -fx-font-size: 14px;" text="Ver Detalle">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+        <Button onAction="#generarReportePedidosEnPreparacion" style="-fx-background-color: #ccb22e; -fx-text-fill: white; -fx-font-size: 14px;" text="Generar Informe de Pedidos en Preparación">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+    </HBox>
+
+
+    <!-- Sección: Pedidos Registrados -->
+    <TitledPane expanded="true" text="Pedidos Registrados">
+        <content>
+            <TableView fx:id="tblPedidos">
+                <columns>
+                    <TableColumn fx:id="colIdPedido" prefWidth="50" text="ID" />
+                    <TableColumn fx:id="colCliente" prefWidth="150" text="Cliente" />
+                    <TableColumn fx:id="colFecha" prefWidth="100" text="Fecha" />
+                    <TableColumn fx:id="colHora" prefWidth="80" text="Hora" />
+                    <TableColumn fx:id="colTotal" prefWidth="100" text="Total" />
+                    <TableColumn fx:id="colEstado" prefWidth="100" text="Estado" />
+                </columns>
+            </TableView>
+        </content>
+    </TitledPane>
+
+    <HBox alignment="CENTER" spacing="15">
+        <!-- Botón para regresar al Menú Principal -->
+        <Button onAction="#volverAlMenu" style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-size: 14px;" text="Volver al Menú">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Button onAction="#generarTicketPedido" style="-fx-background-color: #2d7010; -fx-text-fill: white; -fx-font-size: 14px;" text="Generar Ticket del Pedido">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+    </HBox>
+
+</VBox>
